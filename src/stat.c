@@ -1,9 +1,5 @@
 #include "stat.h"
 
-#define MAX_BUFF 100
-uint8_t buff_count, buff_size[MAX_BUFF], buff_char_count[MAX_BUFF];
-int32_t *base_addr[MAX_BUFF], *head[MAX_BUFF], *tail[MAX_BUFF];
-
 int stat(char param[30])
 {
 	if(buff_count == 0)
@@ -19,22 +15,51 @@ int stat(char param[30])
 	printf("--------\t\t -----------\t\t ---------------------\t\t---------------- \t\t --------------\n");
 	for(int i=0;i<buff_count;i++)
 	{
-		printf("%d \t\t\t\t %d \t\t\t %d \t\t\t %p \t\t\t %p\n", i+1, buff_size[i], buff_char_count[i], base_addr[i], (base_addr[i] + buff_size[i]));
+		printf("%d \t\t\t\t %d \t\t\t %d \t\t\t %p \t\t %p\n", i+1, buff_size[i], buff_char_count[i], base_addr[i], (base_addr[i] + buff_size[i]));
 	}
 
 	for(int i=0;i<buff_count;i++)
 	{
 		printf("\nCircular Buffer %d contents\n", i+1);
+
+		//points head
+		printf("\t ");
+		for(int j=0; j<head[i]-base_addr[i]; j++)
+			printf("    ");
+		printf(" H\n");
+
+		printf("\t ");
+		for(int j=0; j<head[i]-base_addr[i]; j++)
+			printf("    ");
+		printf(" |\n");
+
+		//shows actually buffer
 		printf("\t+");
 		for(int j=0; j<buff_size[i]; j++)
 			printf("---+");
 		printf("\n\t|");
 		for(int j=0; j<buff_size[i]; j++)
-			printf(" %c |", *(base_addr[i]+j));
+		{
+			if(*(base_addr[i]+j) == '\0')
+				printf("   |");
+			else
+				printf(" %c |", *(base_addr[i]+j));
+		}
 		printf("\n\t+");
 		for(int j=0; j<buff_size[i]; j++)
 			printf("---+");
-		printf("\n\n");
+		printf("\n");
+
+		//points tail
+		printf("\t ");
+		for(int j=0; j<tail[i]-base_addr[i]; j++)
+			printf("    ");
+		printf(" |\n");
+
+		printf("\t ");
+		for(int j=0; j<tail[i]-base_addr[i]; j++)
+			printf("    ");
+		printf(" T\n\n");
 	}
 
 	return 0;

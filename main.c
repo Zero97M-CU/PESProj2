@@ -1,9 +1,5 @@
 #include "main.h"
 
-#define MAX_BUFF 100
-extern uint8_t buff_count, buff_size[MAX_BUFF], buff_char_count[MAX_BUFF];
-extern int32_t *base_addr[MAX_BUFF], *head[MAX_BUFF], *tail[MAX_BUFF];
-
 typedef struct functions
 {
 	int (*fnptr)(char[]);
@@ -23,12 +19,10 @@ int main()
 		{rembuff, "rembuff"},
 		{addchar, "addchar"},
 		{remchar, "remchar"},
-		{stat, "stat"},
-		{NULL, " "}
+		{stat, "stat"}
 	};
 
-	//Welcome screen - edit later
-	printf("-------------Welcome--------------\n\n");
+	printf("\n\n\t\t\t********** Welcome to the Circular Buffer code **********\n\n");
 
 	while(1)
 	{
@@ -45,8 +39,11 @@ int main()
 		//Dissecting input
 		sscanf(input, "%s %[^\t\n]s", cmd, param);
 
+		if(strcmp(cmd, "exit") == 0)
+			break;
+
 		//Checking if the cmd portion matches valid function names
-		for(uint8_t i=0; func[i].fnname!=NULL; i++)
+		for(uint8_t i=0; i<NO_OF_FUNCTIONS; i++)
 		{
 			if(strcmp(cmd, func[i].fnname) == 0)
 			{
@@ -58,10 +55,7 @@ int main()
 		}
 
 		if(wrong_ip_flag == 1)
-			printf("You have entered invalid command\nPlease type \"help\" for help\n");
-
-		if(strcmp(cmd, "exit") == 0)
-			break;
+			printf("Invalid Input. Type \"help\" for correct syntax.\n\n");
 	}
 
 	return 0;

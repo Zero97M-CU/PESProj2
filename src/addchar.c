@@ -1,9 +1,5 @@
 #include "addchar.h"
 
-#define MAX_BUFF 100
-uint8_t buff_count, buff_size[MAX_BUFF], buff_char_count[MAX_BUFF];
-int32_t *base_addr[MAX_BUFF], *head[MAX_BUFF], *tail[MAX_BUFF];
-
 int addchar(char param[30])
 {
 	//number of the buffer on which we have to work
@@ -15,7 +11,6 @@ int addchar(char param[30])
 
 	buff_num -= 1;
 
-	//printf("buffsize%d---- charcount%d",buff_size[buff_num], buff_char_count[buff_num]);
 	if(buff_count == 0)
 	{
 		printf("Please allocate a buffer before entering a character\n\n");
@@ -39,7 +34,7 @@ int addchar(char param[30])
 	head[buff_num] = (head[buff_num] + 1) >= (base_addr[buff_num] + buff_size[buff_num]) ? base_addr[buff_num] : (head[buff_num] + 1);
 	buff_char_count[buff_num] = (buff_char_count[buff_num] >= buff_size[buff_num]) ? buff_char_count[buff_num] : (buff_char_count[buff_num] + 1);
 
-	printf("Character '%c' has been added to buffer_%d.\n\n", c, buff_num);
+	printf("Character '%c' has been added to buffer_%d.\n\n", c, buff_num+1);
 
 	return 0;
 }
