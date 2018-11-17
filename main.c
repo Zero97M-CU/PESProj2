@@ -17,11 +17,13 @@ int main()
 		{help, "help"},
 		{addbuff, "addbuff"},
 		{rembuff, "rembuff"},
+		{resize, "resize"},
 		{addchar, "addchar"},
 		{remchar, "remchar"},
 		{stat, "stat"}
 	};
 
+	uint8_t NO_OF_FUNCTIONS = sizeof(func)/sizeof(func[0]);
 	printf("\n\n\t\t\t********** Welcome to the Circular Buffer code **********\n\n");
 
 	while(1)
@@ -57,6 +59,5 @@ int main()
 		if(wrong_ip_flag == 1)
 			printf("Invalid Input. Type \"help\" for correct syntax.\n\n");
 	}
-
 	return 0;
 }

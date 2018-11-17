@@ -4,8 +4,8 @@ SRCPATH = src/
 CC = gcc
 CFLAGS = -Wall -c
 
-proj2: main.o help.o addbuff.o rembuff.o addchar.o remchar.o stat.o
-	$(CC) $(CFALGS) main.o help.o addbuff.o rembuff.o addchar.o remchar.o stat.o -o proj2
+proj2: main.o help.o addbuff.o rembuff.o addchar.o resize.o remchar.o stat.o
+	$(CC) $(CFALGS) main.o help.o addbuff.o rembuff.o addchar.o remchar.o stat.o resize.o -o proj2
 	
 main.o: main.c $(INCPATH)main.h
 	$(CC) $(CFLAGS) main.c -I$(INCPATH)
@@ -27,6 +27,9 @@ remchar.o: $(SRCPATH)remchar.c $(INCPATH)remchar.h
 
 stat.o: $(SRCPATH)stat.c $(INCPATH)stat.h
 	$(CC) $(CFLAGS) $(SRCPATH)stat.c -I$(INCPATH)
+
+resize.o: $(SRCPATH)resize.c $(INCPATH)resize.h
+	$(CC) $(CFLAGS) $(SRCPATH)resize.c -I$(INCPATH)
 	
 clean:
-	rm proj2 main.o help.o addbuff.o rembuff.o addchar.o remchar.o stat.o
+	rm proj2 main.o help.o addbuff.o rembuff.o addchar.o remchar.o stat.o resize.o
