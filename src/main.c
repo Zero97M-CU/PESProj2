@@ -23,7 +23,7 @@ int main()
 		{stat, "stat"}
 	};
 
-	uint8_t NO_OF_FUNCTIONS = sizeof(func)/sizeof(func[0]);
+	uint8_t no_of_functions = sizeof(func)/sizeof(func[0]);
 	printf("\n\n\t\t\t********** Welcome to the Circular Buffer code **********\n\n");
 
 	while(1)
@@ -45,7 +45,7 @@ int main()
 			break;
 
 		//Checking if the cmd portion matches valid function names
-		for(uint8_t i=0; i<NO_OF_FUNCTIONS; i++)
+		for(uint8_t i=0; i<no_of_functions; i++)
 		{
 			if(strcmp(cmd, func[i].fnname) == 0)
 			{
