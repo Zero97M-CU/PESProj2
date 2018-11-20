@@ -13,13 +13,13 @@ int rembuff(char param[30])
 	if(buff_count == 0)
 	{
 		printf("No buffer to remove\n\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if(buff_num < 0 || buff_num >= buff_count)
 	{
 		printf("Invalid buffer number\n\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	//Shifts the circular buffers
@@ -47,5 +47,5 @@ int rembuff(char param[30])
 
 	printf("Circular Buffer_%d is deleted.\n\n", buff_num + 1);
 
-	return 0;
+	return EXIT_SUCCESS;
 }

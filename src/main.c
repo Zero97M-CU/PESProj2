@@ -59,5 +59,5 @@ int main()
 		if(wrong_ip_flag == 1)
 			printf("Invalid Input. Type \"help\" for correct syntax.\n\n");
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -14,13 +14,13 @@ int addchar(char param[30])
 	if(buff_count == 0)
 	{
 		printf("Please allocate a buffer before entering a character.\n\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if(buff_num < 0 || buff_num >= buff_count)
 	{
 		printf("Invalid buffer number.\n\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if(buff_char_count[buff_num] >= buff_size[buff_num])
@@ -36,5 +36,5 @@ int addchar(char param[30])
 
 	printf("Character '%c' has been added to buffer_%d.\n\n", c, buff_num+1);
 
-	return 0;
+	return EXIT_SUCCESS;
 }

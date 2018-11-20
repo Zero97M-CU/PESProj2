@@ -5,7 +5,7 @@ int stat(char param[30])
 	if(buff_count == 0)
 	{
 		printf("No stats to display.\n\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf("\n");
@@ -62,5 +62,5 @@ int stat(char param[30])
 		printf(" T\n\n");
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }
