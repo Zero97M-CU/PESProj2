@@ -1,3 +1,11 @@
+/* --------------------------------------------
+ * File: Add Characters
+ * Authors: Mohit & Suman
+ *
+ * Adds characters to the existing circular buffers. 
+ * --------------------------------------------
+*/
+
 #include "addchar.h"
 
 int addchar(char param[30])

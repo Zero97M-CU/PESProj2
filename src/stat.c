@@ -1,3 +1,12 @@
+/* --------------------------------------------
+ * File: Current program statistics
+ * Authors: Mohit & Suman
+ *
+ * Gives information on the current states of circular buffers,
+ * head and tail pointers, number of characters, etc
+ *--------------------------------------------
+*/
+
 #include "stat.h"
 
 int stat(char param[30])

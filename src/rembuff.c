@@ -1,3 +1,11 @@
+/* ----------------------------------------------
+ * File: Remove buffers
+ * Authors: Mohit & Suman
+ *
+ * Removes existing circular buffers from the heap.
+ *------------------------------------------------
+*/
+
 #include "rembuff.h"
 
 int rembuff(char param[30])

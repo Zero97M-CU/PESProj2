@@ -1,3 +1,11 @@
+/* --------------------------------------------
+ * File: Add buffer(s)
+ * Authors: Mohit & Suman
+ *
+ * Add new circular buffers on the heap.
+ * --------------------------------------------
+ */
+
 #include "addbuff.h"
 
 int addbuff(char param[30])

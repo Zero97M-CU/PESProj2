@@ -1,3 +1,11 @@
+/* --------------------------------------------
+ * File: Remove Characters
+ * Authors: Mohit & Suman
+ *
+ * Removes oldest character from the required circular buffer.
+ *--------------------------------------------
+*/
+
 #include "remchar.h"
 
 int remchar(char param[30])

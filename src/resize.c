@@ -1,3 +1,12 @@
+/* --------------------------------------------
+ * File: Resize exisiting buffers
+ * Authors: Mohit & Suman
+ *
+ * Allows user to resize existing buffers to facilitate on-the-fly
+ * change in buffer lengths
+ *--------------------------------------------
+*/
+
 #include <resize.h>
 
 int resize(char param[30])
