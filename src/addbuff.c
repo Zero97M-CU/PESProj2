@@ -22,16 +22,16 @@ int addbuff(char param[30])
 	if(local_buff_count == 0)
 	{
 		printf("No buffers requested.\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	//array to store length of each buffer
 	uint8_t buff_len[local_buff_count];
-	
+
 	if(!(strcmp(lengths,"")))
 	{
 		printf("Provided lengths are not valid.\n");
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	for(uint8_t i=0; i<local_buff_count; i++)
@@ -50,5 +50,5 @@ int addbuff(char param[30])
 		printf(" %hhu", buff_len[i]);
 	printf(".\n\n");
 
-	return 0;
+	return EXIT_SUCCESS;
 }
