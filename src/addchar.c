@@ -55,7 +55,8 @@ int addchar(char param[30])
 	if(char_found_flag == 0)
 	{
 		*(app_char[buff_num] + app_position[buff_num]) = c;		//app_position helps keep track of the number of elements in the app_char array if each buffer
-	        *(app_char_count[buff_num] + app_position[buff_num]) = 1;	
+	        *(app_char_count[buff_num] + app_position[buff_num]) = 1;
+		app_position[buff_num] = app_position[buff_num] + 1;	
 	}
 
 

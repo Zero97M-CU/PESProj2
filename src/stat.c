@@ -74,12 +74,12 @@ int stat(char param[30])
 //	printf("CHARACTER\t\tCOUNT\n---------\t\t-----\n");
 	for(int i=0;i<buff_count;i++)
 	{
-		printf("Buffer_%d\n",i+1);
+		printf("\nBuffer_%d\n",i+1);
 		printf("CHARACTER\t\tCOUNT\n---------\t\t-----\n");
 
 		for(int j=0;j<app_position[i];j++)
 		{
-			printf("%c\t\t%d\n",*(app_char[i] + j), *(app_char_count[i] + j));
+			printf("%c\t\t\t%d\n",*(app_char[i] + j), *(app_char_count[i] + j));
 		}
 	}
 
