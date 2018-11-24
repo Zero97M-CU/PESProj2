@@ -79,7 +79,13 @@ int stat(char param[30])
 
 		for(int j=0;j<app_position[i];j++)
 		{
-			printf("%c\t\t\t%d\n",*(app_char[i] + j), *(app_char_count[i] + j));
+			if(*(app_char_count[i] + j) == 0)
+			{
+				continue;
+			}
+
+			else
+				printf("%c\t\t\t%d\n",*(app_char[i] + j), *(app_char_count[i] + j));
 		}
 	}
 

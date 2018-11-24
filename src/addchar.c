@@ -34,6 +34,14 @@ int addchar(char param[30])
 
 	if(buff_char_count[buff_num] >= buff_size[buff_num])
 	{
+		 for(int i=0;i<256;i++)
+		 {
+		        if(*(app_char[buff_num]+i) == *tail[buff_num])
+		        {
+		             *(app_char_count[buff_num] + i) = *(app_char_count[buff_num] + i) - 1;
+		              //char_found_flag = 1;
+		        }
+		 }
 		printf("Buffer full. Values will be overwritten.\n");
 		printf("Value thrown out: %c\n", *tail[buff_num]);
 		tail[buff_num] = (tail[buff_num] + 1) >= (base_addr[buff_num] + buff_size[buff_num]) ? base_addr[buff_num] : (tail[buff_num] + 1);

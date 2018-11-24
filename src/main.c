@@ -29,7 +29,7 @@ int main()
 	while(1)
 	{
 		uint8_t wrong_ip_flag = 1;
-
+		printf("\n\n");
 		printf(">>");
 
 		//resetting input variable
