@@ -70,8 +70,36 @@ int stat(char param[30])
 			printf("    ");
 		printf(" T\n\n");
 	}
+
+	for(int i=0;i<buff_count;i++)
+	{
+		 app_char[i] = (char*) malloc(256 * sizeof(int));               //keep track of characters in the buffer
+                 app_char_count[i] = (int*) malloc(256 * sizeof(int));          //keep track of character count in the buffer
+	}
+
+	for(int i=0;i<buff_count;i++)
+	{
+		for(int j=0;j<buff_char_count[i];j++)
+		{
+			for(int k=0;k<255;k++)
+			{
+				if(*(base_addr[i] + j) == *(app_char[i] + k))
+				{
+					*(app_char_count[i] + k) = *(app_char_count[i] + k ) + 1;
+					break;
+				}
+				
+				else
+				{
+					*(app_char[i] + app_position[i]) = *(base_addr[i] + j);
+					*(app_char_count[i] + app_position[i]) = 1;
+					app_position[i] = app_position[i] + 1;
+					break;
+				}
+			}
+		}
+	}
 	
-//	printf("CHARACTER\t\tCOUNT\n---------\t\t-----\n");
 	for(int i=0;i<buff_count;i++)
 	{
 		printf("\nBuffer_%d\n",i+1);
@@ -88,6 +116,12 @@ int stat(char param[30])
 				printf("%c\t\t\t%d\n",*(app_char[i] + j), *(app_char_count[i] + j));
 		}
 	}
+
+	//for(int i=0;i<buff_count;i++)
+	//{
+	//	free(app_char[i]);
+	//	free(app_char_count[i]);
+	//}
 
 	return EXIT_SUCCESS;
 }

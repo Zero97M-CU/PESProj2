@@ -38,13 +38,6 @@ int remchar(char param[30])
 
 	printf("Character '%c' from buffer_%d removed.\n\n", *tail[buff_num], buff_num + 1);
 
-	for(int i=0;i<app_position[buff_num];i++)
-	{
-		if(*(app_char[buff_num]+i) == *tail[buff_num])
-		{
-			*(app_char_count[buff_num] + i) = *(app_char_count[buff_num] + i) - 1;
-		}
-	}
 	*tail[buff_num] = '\0';
 	tail[buff_num] = (tail[buff_num] + 1) >= (base_addr[buff_num] + buff_size[buff_num]) ? base_addr[buff_num] : (tail[buff_num] + 1);
 	buff_char_count[buff_num]--; //decrementing number of characters in the buffer

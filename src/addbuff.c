@@ -42,8 +42,8 @@ int addbuff(char param[30])
 		head[buff_count] = base_addr[buff_count];
 		tail[buff_count] = base_addr[buff_count];
 
-		app_char[buff_count] = (char*) malloc(256 * sizeof(int));		//keep track of characters in the buffer
-		app_char_count[buff_count] = (int*) malloc(256 * sizeof(int));		//keep track of character count in the buffer
+	//	app_char[buff_count] = (char*) malloc(256 * sizeof(int));		//keep track of characters in the buffer
+	//	app_char_count[buff_count] = (int*) malloc(256 * sizeof(int));		//keep track of character count in the buffer
 
 		buff_count += 1;
 	}

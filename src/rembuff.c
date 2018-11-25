@@ -58,8 +58,6 @@ int rembuff(char param[30])
 		//Freeing the last buffer
 		free(rem_ptr);
 		buff_count--;
-		free(app_char[buff_num]);
-		free(app_char_count[buff_num]);
 
 		printf("Circular Buffer_%d is deleted.\n\n", buff_num + 1);
 

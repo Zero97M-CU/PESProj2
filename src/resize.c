@@ -54,6 +54,11 @@ int resize(char param[30])
 		else
 		{
 			buff_size[buff_num] = buff_size[buff_num] - new_size;
+			if(buff_char_count[buff_num] > buff_size[buff_num])
+			{
+				buff_char_count[buff_num] = buff_char_count[buff_num] - new_size;
+			}
+
 			printf("Buffer_%d has been resized to %d", (buff_num + 1), buff_size[buff_num]);
 			return EXIT_SUCCESS;
 		}
