@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include "CUnit/Basic.h"
 
 #define MAX_BUFF 100
 

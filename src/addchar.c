@@ -2,7 +2,7 @@
  * File: Add Characters
  * Authors: Mohit & Suman
  *
- * Adds characters to the existing circular buffers. 
+ * Adds characters to the existing circular buffers.
  * --------------------------------------------
 */
 
@@ -21,13 +21,13 @@ int addchar(char param[30])
 
 	if(buff_count == 0)
 	{
-		printf("Please allocate a buffer before entering a character.\n\n");
+		printf("Please allocate a buffer before entering a character.\n");
 		return EXIT_FAILURE;
 	}
 
 	if(buff_num < 0 || buff_num >= buff_count)
 	{
-		printf("Invalid buffer number.\n\n");
+		printf("Invalid buffer number.\n");
 		return EXIT_FAILURE;
 	}
 
@@ -42,7 +42,7 @@ int addchar(char param[30])
 	head[buff_num] = (head[buff_num] + 1) >= (base_addr[buff_num] + buff_size[buff_num]) ? base_addr[buff_num] : (head[buff_num] + 1);
 	buff_char_count[buff_num] = (buff_char_count[buff_num] >= buff_size[buff_num]) ? buff_char_count[buff_num] : (buff_char_count[buff_num] + 1);
 
-	printf("Character '%c' has been added to buffer_%d.\n\n", c, buff_num+1);
+	printf("Character '%c' has been added to buffer_%d.\n", c, buff_num+1);
 
 	return EXIT_SUCCESS;
 }

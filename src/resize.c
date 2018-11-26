@@ -11,6 +11,7 @@
 
 int resize(char param[30])
 {
+	//new size is actually the size that has to be added or removed to the original size
 	uint8_t new_size, buff_num;
 	char c;
 
@@ -24,7 +25,7 @@ int resize(char param[30])
 		return EXIT_FAILURE;
 	}
 
-	if(buff_num < 0 || buff_num > buff_count)
+	if(buff_num < 0 || buff_num >= buff_count)
 	{
 		printf("Invalid buffer number.\n");
 		return EXIT_FAILURE;
@@ -45,12 +46,14 @@ int resize(char param[30])
 
 	else if(c == '-')
 	{
+		//= NEEDS TO BE REMOVED. = MEANS THAT THE BUFFER NEEDS TO BE DELETED SO CAN COPY REMBUFF FOR THIS CASE.
 		if(new_size >= buff_size[buff_num])
 		{
 			printf("Resized value is bigger than buffer size.\n");
-		        return EXIT_FAILURE;
+		   return EXIT_FAILURE;
 		}
 
+		//FLAW
 		else
 		{
 			buff_size[buff_num] = buff_size[buff_num] - new_size;
@@ -58,11 +61,9 @@ int resize(char param[30])
 			{
 				buff_char_count[buff_num] = buff_char_count[buff_num] - new_size;
 			}
-
 			printf("Buffer_%d has been resized to %d", (buff_num + 1), buff_size[buff_num]);
 			return EXIT_SUCCESS;
 		}
 	}
-
 	return EXIT_SUCCESS;
 }

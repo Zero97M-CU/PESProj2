@@ -31,7 +31,7 @@ void test_remchar()
 
 void test_rembuff()
 {
-	CU_ASSERT_EQUAL(addchar("3"), EXIT_SUCCESS);
+	CU_ASSERT_EQUAL(rembuff("3"), EXIT_SUCCESS);
 }
 
 int main()

@@ -29,7 +29,7 @@ int main()
 	while(1)
 	{
 		uint8_t wrong_ip_flag = 1;
-		printf("\n\n");
+		printf("\n");
 		printf(">>");
 
 		//resetting input variable
@@ -57,7 +57,7 @@ int main()
 		}
 
 		if(wrong_ip_flag == 1)
-			printf("Invalid Input. Type \"help\" for correct syntax.\n\n");
+			printf("Invalid Input. Type \"help\" for correct syntax.");
 	}
 	return EXIT_SUCCESS;
 }

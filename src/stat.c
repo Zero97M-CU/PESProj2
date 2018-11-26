@@ -27,6 +27,7 @@ int stat(char param[30])
 		printf("%d \t\t\t\t %d \t\t\t %d \t\t\t %p \t\t %p\n", i+1, buff_size[i], buff_char_count[i], base_addr[i], (base_addr[i] + buff_size[i]));
 	}
 
+	/*---------Showing actual buffers----------*/
 	for(int i=0;i<buff_count;i++)
 	{
 		printf("\nCircular Buffer %d contents\n", i+1);
@@ -71,10 +72,11 @@ int stat(char param[30])
 		printf(" T\n\n");
 	}
 
+	/*---------PART 5----------*/
 	for(int i=0;i<buff_count;i++)
 	{
-		 app_char[i] = (char*) malloc(256 * sizeof(int));               //keep track of characters in the buffer
-                 app_char_count[i] = (int*) malloc(256 * sizeof(int));          //keep track of character count in the buffer
+		 app_char_addr[i] = (int*) malloc(256 * sizeof(int));		//keep track of characters in the buffer
+		 app_cnt_addr[i] = (int*) malloc(256 * sizeof(int));    //keep track of character count in the buffer
 	}
 
 	for(int i=0;i<buff_count;i++)
@@ -83,45 +85,52 @@ int stat(char param[30])
 		{
 			for(int k=0;k<255;k++)
 			{
-				if(*(base_addr[i] + j) == *(app_char[i] + k))
+				//increase count of unique char which already occured earlier
+				if(*(base_addr[i] + j) == *(app_char_addr[i] + k))
 				{
-					*(app_char_count[i] + k) = *(app_char_count[i] + k ) + 1;
+					*(app_cnt_addr[i] + k) = *(app_cnt_addr[i] + k) + 1;
 					break;
 				}
-				
+
+				//else add that unique char
 				else
 				{
-					*(app_char[i] + app_position[i]) = *(base_addr[i] + j);
-					*(app_char_count[i] + app_position[i]) = 1;
-					app_position[i] = app_position[i] + 1;
+					*(app_char_addr[i] + no_of_uniq_char[i]) = *(base_addr[i] + j);
+					*(app_cnt_addr[i] + no_of_uniq_char[i]) = 1;
+					no_of_uniq_char[i] = no_of_uniq_char[i] + 1;
 					break;
 				}
 			}
 		}
 	}
-	
+
 	for(int i=0;i<buff_count;i++)
 	{
 		printf("\nBuffer_%d\n",i+1);
 		printf("CHARACTER\t\tCOUNT\n---------\t\t-----\n");
 
-		for(int j=0;j<app_position[i];j++)
+		for(int j=0;j<no_of_uniq_char[i];j++)
 		{
-			if(*(app_char_count[i] + j) == 0)
+			/*
+			if(*(app_cnt_addr[i] + j) == 0)
 			{
 				continue;
 			}
+			*/
 
-			else
-				printf("%c\t\t\t%d\n",*(app_char[i] + j), *(app_char_count[i] + j));
+			//else
+				printf("    %c\t\t\t  %d\n",*(app_char_addr[i] + j), *(app_cnt_addr[i] + j));
 		}
 	}
 
-	//for(int i=0;i<buff_count;i++)
-	//{
-	//	free(app_char[i]);
-	//	free(app_char_count[i]);
-	//}
+	int32_t* rem_ptr;
+	rem_ptr = (int*) malloc(sizeof(int));
+	for(int i=0;i<buff_count;i++)
+	{
+		app_char_addr[i] = rem_ptr;
+		app_cnt_addr[i] = rem_ptr;
+		no_of_uniq_char[i] = 0;
+	}
 
 	return EXIT_SUCCESS;
 }

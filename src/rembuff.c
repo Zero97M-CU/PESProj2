@@ -12,6 +12,8 @@ int rembuff(char param[30])
 {
 	//number of the buffer on which we have to work
 	uint8_t buff_num;
+
+	//character declaration to ask the user for confirmation of deletion
 	char a;
 
 	//storing buffer number
@@ -21,13 +23,13 @@ int rembuff(char param[30])
 
 	if(buff_count == 0)
 	{
-		printf("No buffer to remove\n\n");
+		printf("No buffer to remove\n");
 		return EXIT_FAILURE;
 	}
 
 	if(buff_num < 0 || buff_num >= buff_count)
 	{
-		printf("Invalid buffer number\n\n");
+		printf("Invalid buffer number\n");
 		return EXIT_FAILURE;
 	}
 
@@ -59,7 +61,7 @@ int rembuff(char param[30])
 		free(rem_ptr);
 		buff_count--;
 
-		printf("Circular Buffer_%d is deleted.\n\n", buff_num + 1);
+		printf("Circular Buffer_%d is deleted.", buff_num + 1);
 
 		return EXIT_SUCCESS;
 	}

@@ -17,6 +17,6 @@ int help(char param[30])
 
 
 	printf("\n\n**Warning!!! <rembuff> will remove the entire buffer. All values in the buffer will be lost.**\n");
-	printf("----------------------------------------------------------------------------------------------------------------\n\n");
+	printf("----------------------------------------------------------------------------------------------------------------");
 	return EXIT_SUCCESS;
 }
