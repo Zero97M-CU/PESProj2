@@ -13,9 +13,6 @@ int rembuff(char param[30])
 	//number of the buffer on which we have to work
 	uint8_t buff_num;
 
-	//character declaration to ask the user for confirmation of deletion
-	char a;
-
 	//storing buffer number
 	sscanf(param, "%hhu", &buff_num);
 
@@ -33,11 +30,6 @@ int rembuff(char param[30])
 		return EXIT_FAILURE;
 	}
 
-	printf("WARNING!!!\nDo you want to remove the entire buffer?.\nPress 'y' to continue, 'n' to abort.\n");
-	scanf("%c",&a);
-
-	if(a == 'y' || a == 'Y')
-	{
 		//Shifts the circular buffers
 		for(int i=buff_num; i<buff_count-1; i++)
 		{
@@ -61,19 +53,7 @@ int rembuff(char param[30])
 		free(rem_ptr);
 		buff_count--;
 
-		printf("Circular Buffer_%d is deleted.", buff_num + 1);
+		printf("Circular Buffer_%d is deleted.\n", buff_num + 1);
 
 		return EXIT_SUCCESS;
-	}
-
-	else if(a == 'n' || a == 'N')
-	{
-		return EXIT_SUCCESS;
-	}
-
-	else
-	{
-		printf("Invalid input.\n");
-		return EXIT_FAILURE;
-	}
 }

@@ -38,12 +38,9 @@ int addbuff(char param[30])
 	{
 		sscanf(lengths, "%hhu %[^\t\n]s", &buff_len[i], lengths);
 		buff_size[buff_count] = buff_len[i];
-		base_addr[buff_count] = (int*) malloc((buff_len[i]+200) * sizeof(int));
+		base_addr[buff_count] = (int*) malloc((buff_len[i]+200) * sizeof(uint8_t));
 		head[buff_count] = base_addr[buff_count];
 		tail[buff_count] = base_addr[buff_count];
-
-	//	app_char[buff_count] = (char*) malloc(256 * sizeof(int));		//keep track of characters in the buffer
-	//	app_char_count[buff_count] = (int*) malloc(256 * sizeof(int));		//keep track of character count in the buffer
 
 		buff_count += 1;
 	}

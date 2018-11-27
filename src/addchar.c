@@ -31,6 +31,12 @@ int addchar(char param[30])
 		return EXIT_FAILURE;
 	}
 
+	if(c == '\0')
+	{
+		printf("Invalid input value.\n");
+		return EXIT_FAILURE;
+	}
+
 	if(buff_char_count[buff_num] >= buff_size[buff_num])
 	{
 		printf("Buffer full. Values will be overwritten.\n");

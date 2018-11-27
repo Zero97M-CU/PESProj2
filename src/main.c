@@ -57,7 +57,7 @@ int main()
 		}
 
 		if(wrong_ip_flag == 1)
-			printf("Invalid Input. Type \"help\" for correct syntax.");
+			printf("Invalid Input. Type \"help\" for correct syntax.\n");
 	}
 	return EXIT_SUCCESS;
 }

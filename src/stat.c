@@ -13,7 +13,7 @@ int stat(char param[30])
 {
 	if(buff_count == 0)
 	{
-		printf("No stats to display.\n\n");
+		printf("No stats to display.\n");
 		return EXIT_FAILURE;
 	}
 
@@ -73,6 +73,9 @@ int stat(char param[30])
 	}
 
 	/*---------PART 5----------*/
+	//a flag to check if unique character already exist in buffer
+	int8_t uniq_flag;
+
 	for(int i=0;i<buff_count;i++)
 	{
 		 app_char_addr[i] = (int*) malloc(256 * sizeof(int));		//keep track of characters in the buffer
@@ -81,24 +84,30 @@ int stat(char param[30])
 
 	for(int i=0;i<buff_count;i++)
 	{
-		for(int j=0;j<buff_char_count[i];j++)
+		for(int j=0;j<buff_size[i];j++)
 		{
-			for(int k=0;k<255;k++)
+			if(*(base_addr[i]+j) == '\0')
+				continue;
+
+			else
 			{
-				//increase count of unique char which already occured earlier
-				if(*(base_addr[i] + j) == *(app_char_addr[i] + k))
+				for(int k=0;k<256;k++)
 				{
-					*(app_cnt_addr[i] + k) = *(app_cnt_addr[i] + k) + 1;
-					break;
+					uniq_flag = 1;
+					//increase count of unique char which already occured earlier
+					if(*(base_addr[i] + j) == *(app_char_addr[i] + k))
+					{
+						*(app_cnt_addr[i] + k) = *(app_cnt_addr[i] + k) + 1;
+						uniq_flag = 0;
+						break;
+					}
 				}
 
-				//else add that unique char
-				else
+				if(uniq_flag == 1)
 				{
 					*(app_char_addr[i] + no_of_uniq_char[i]) = *(base_addr[i] + j);
 					*(app_cnt_addr[i] + no_of_uniq_char[i]) = 1;
 					no_of_uniq_char[i] = no_of_uniq_char[i] + 1;
-					break;
 				}
 			}
 		}
@@ -111,14 +120,6 @@ int stat(char param[30])
 
 		for(int j=0;j<no_of_uniq_char[i];j++)
 		{
-			/*
-			if(*(app_cnt_addr[i] + j) == 0)
-			{
-				continue;
-			}
-			*/
-
-			//else
 				printf("    %c\t\t\t  %d\n",*(app_char_addr[i] + j), *(app_cnt_addr[i] + j));
 		}
 	}

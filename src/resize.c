@@ -46,22 +46,34 @@ int resize(char param[30])
 
 	else if(c == '-')
 	{
-		//= NEEDS TO BE REMOVED. = MEANS THAT THE BUFFER NEEDS TO BE DELETED SO CAN COPY REMBUFF FOR THIS CASE.
 		if(new_size >= buff_size[buff_num])
 		{
 			printf("Resized value is bigger than buffer size.\n");
-		   return EXIT_FAILURE;
+			printf("Use rembuff to remove the entire buffer.\n");
+		  return EXIT_FAILURE;
 		}
 
 		//FLAW
 		else
 		{
 			buff_size[buff_num] = buff_size[buff_num] - new_size;
-			if(buff_char_count[buff_num] > buff_size[buff_num])
+			buff_char_count[buff_num] = 0;
+			for(int i=0;i<buff_size[buff_num];i++)
 			{
-				buff_char_count[buff_num] = buff_char_count[buff_num] - new_size;
+				if(*(base_addr[buff_num] + i) == '\0')
+					continue;
+
+				else
+					buff_char_count[buff_num] += 1;
 			}
-			printf("Buffer_%d has been resized to %d", (buff_num + 1), buff_size[buff_num]);
+			//bringing head and tail pointers to base address if any of them are floating outside new buffer size
+			if(head[buff_num] > (base_addr[buff_num] + buff_size[buff_num] - 1) || tail[buff_num] > (base_addr[buff_num] + buff_size[buff_num] - 1))
+			{
+				printf("Head and Tail pointers are reset to base address.\n");
+				head[buff_num] = base_addr[buff_num];
+				tail[buff_num] = base_addr[buff_num];
+			}
+			printf("Buffer_%d has been resized to %d.\n", (buff_num + 1), buff_size[buff_num]);
 			return EXIT_SUCCESS;
 		}
 	}
