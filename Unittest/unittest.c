@@ -15,23 +15,38 @@ int clean_suite1(void)
 
 void test_addbuff()
 {
-	CU_ASSERT_EQUAL(addbuff("3 5 9 3"), EXIT_SUCCESS);
-	CU_ASSERT_EQUAL(addbuff(""), EXIT_SUCCESS);
+	CU_ASSERT_EQUAL(addbuff("3 5 9 3"), EXIT_SUCCESS);	//pass
+	CU_ASSERT_EQUAL(addbuff("1 10"), EXIT_SUCCESS);			//pass
+	CU_ASSERT_EQUAL(addbuff(""), EXIT_SUCCESS);					//fail
 }
 
 void test_addchar()
 {
-	CU_ASSERT_EQUAL(addchar("2 &"), EXIT_SUCCESS);
+	CU_ASSERT_EQUAL(addchar("2 &"), EXIT_SUCCESS);	//pass
+	CU_ASSERT_EQUAL(addchar("1 U"), EXIT_SUCCESS);	//pass
+	CU_ASSERT_EQUAL(addchar("1 U"), EXIT_SUCCESS);	//pass
+	CU_ASSERT_EQUAL(addchar("6 U"), EXIT_SUCCESS);	//fail
 }
 
 void test_remchar()
 {
-	CU_ASSERT_EQUAL(remchar("2"), EXIT_SUCCESS);
+	CU_ASSERT_EQUAL(remchar("2"), EXIT_SUCCESS);	//pass
+	CU_ASSERT_EQUAL(remchar("9"), EXIT_SUCCESS);	//fail
+	CU_ASSERT_EQUAL(remchar("1"), EXIT_SUCCESS);	//pass
 }
 
 void test_rembuff()
 {
-	CU_ASSERT_EQUAL(rembuff("3"), EXIT_SUCCESS);
+	CU_ASSERT_EQUAL(rembuff("3"), EXIT_SUCCESS);	//pass
+	CU_ASSERT_EQUAL(rembuff("5"), EXIT_SUCCESS);	//fail
+	CU_ASSERT_EQUAL(rembuff("4"), EXIT_SUCCESS);	//fail
+}
+
+void test_resize()
+{
+	CU_ASSERT_EQUAL(resize("2 - 3"), EXIT_SUCCESS);		//pass
+	CU_ASSERT_EQUAL(resize("1 + 7"), EXIT_SUCCESS);		//pass
+	CU_ASSERT_EQUAL(resize("2 - 25"), EXIT_SUCCESS);	//fail
 }
 
 int main()
@@ -69,6 +84,12 @@ int main()
 	}
 
 	if ((NULL == CU_add_test(pSuite, "test of rembuff", test_rembuff)))
+	{
+		CU_cleanup_registry();
+		return CU_get_error();
+	}
+
+	if ((NULL == CU_add_test(pSuite, "test of resize", test_resize)))
 	{
 		CU_cleanup_registry();
 		return CU_get_error();

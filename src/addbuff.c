@@ -37,6 +37,8 @@ int addbuff(char param[30])
 	for(uint8_t i=0; i<local_buff_count; i++)
 	{
 		sscanf(lengths, "%hhu %[^\t\n]s", &buff_len[i], lengths);
+		if(buff_len[i] == 0)
+			continue;
 		buff_size[buff_count] = buff_len[i];
 		base_addr[buff_count] = (int*) malloc((buff_len[i]+200) * sizeof(uint8_t));
 		head[buff_count] = base_addr[buff_count];

@@ -33,7 +33,7 @@ int resize(char param[30])
 
 	if(c != '+' && c != '-')
 	{
-		printf("Enter valid sign.");
+		printf("Enter valid sign.\n");
 		return EXIT_FAILURE;
 	}
 

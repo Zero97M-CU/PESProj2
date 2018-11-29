@@ -36,7 +36,7 @@ clean:
 	rm proj2 main.o help.o addbuff.o rembuff.o addchar.o remchar.o stat.o resize.o
 
 unit:
-	$(CC) -Wall -o unit $(UNITTESTPATH)unittest.c addbuff.o rembuff.o addchar.o remchar.o -lcunit
+	$(CC) -Wall -o unit $(UNITTESTPATH)unittest.c addbuff.o rembuff.o addchar.o remchar.o resize.o -lcunit
 
 uclean:
 	rm unit
