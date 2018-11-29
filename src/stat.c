@@ -120,7 +120,9 @@ int stat(char param[30])
 
 		for(int j=0;j<no_of_uniq_char[i];j++)
 		{
-				printf("    %c\t\t\t  %d\n",*(app_char_addr[i] + j), *(app_cnt_addr[i] + j));
+			putchar(*(app_char_addr[i] + j));
+			printf("\t\t\t %d\n",*(app_cnt_addr[i] + j));
+				//printf("    %c\t\t\t  %d\n",*(app_char_addr[i] + j), *(app_cnt_addr[i] + j));
 		}
 	}
 

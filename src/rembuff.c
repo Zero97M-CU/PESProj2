@@ -11,12 +11,18 @@
 int rembuff(char param[30])
 {
 	//number of the buffer on which we have to work
-	uint8_t buff_num;
+	uint8_t buff_num = 0;
 
 	//storing buffer number
 	sscanf(param, "%hhu", &buff_num);
 
 	buff_num -= 1;
+
+        /*if(buff_num == 0)
+        {
+                printf("Provided buffer value is not valid.\n");
+                return EXIT_FAILURE;
+        }*/
 
 	if(buff_count == 0)
 	{
@@ -24,7 +30,7 @@ int rembuff(char param[30])
 		return EXIT_FAILURE;
 	}
 
-	if(buff_num < 0 || buff_num >= buff_count)
+	if(buff_num <= 0 || buff_num >= buff_count)
 	{
 		printf("Invalid buffer number\n");
 		return EXIT_FAILURE;

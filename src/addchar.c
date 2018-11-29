@@ -47,8 +47,8 @@ int addchar(char param[30])
 	*head[buff_num] = c;
 	head[buff_num] = (head[buff_num] + 1) >= (base_addr[buff_num] + buff_size[buff_num]) ? base_addr[buff_num] : (head[buff_num] + 1);
 	buff_char_count[buff_num] = (buff_char_count[buff_num] >= buff_size[buff_num]) ? buff_char_count[buff_num] : (buff_char_count[buff_num] + 1);
-
-	printf("Character '%c' has been added to buffer_%d.\n", c, buff_num+1);
+	putchar(c);
+	printf("\nCharacter '%c' has been added to buffer_%d.\n", c, buff_num+1);
 
 	return EXIT_SUCCESS;
 }
