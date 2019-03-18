@@ -25,16 +25,15 @@ To clean the unit test file executable
 > make uclean
 </pre>
 
-###Functions
-<pre>
+#### Functions
+
 Linux - Circular buffer has various functions associated with it.
 Each source file has its own header file associated with it.
 
-main.c
-------
+##### main.c
 - Invokes the various functions asked by the user.
 - Functions declared in this source file.
-</pre>
+
 Command | Arguments	| Description
 -------	| ---------	| -----------
 help | <none>	| Lists all available functions with syntax.
@@ -45,8 +44,6 @@ remchar | <buffer_number> | Remove oldest character in a buffer.
 resize |	<buffer_number> <+/-> <# Memory locations> | Resize existing buffer.
 stat | <none> | Get current statistic on the circular buffers.
 exit | <none> | Exit the program.
-<pre>
-unittest.c
-----------
--Checks assertions for each function of circular buffer.
-</pre>
+
+##### unittest.c
+- Checks assertions for each function of circular buffer.
