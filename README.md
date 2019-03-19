@@ -2,6 +2,8 @@
 
 Contributors: Mohit Rane and Suman Hosmane
 
+Description: 
+
 ## In Linux
 To execute the program
 <pre>
@@ -25,12 +27,12 @@ To clean the unit test file executable
 > make uclean
 </pre>
 
-#### Functions
+### Functions
 
 Linux - Circular buffer has various functions associated with it.
 Each source file has its own header file associated with it.
 
-##### main.c
+#### main.c
 - Invokes the various functions asked by the user.
 - Functions declared in this source file.
 
@@ -45,5 +47,5 @@ resize |	<buffer_number> <+/-> <# Memory locations> | Resize existing buffer.
 stat | <none> | Get current statistic on the circular buffers.
 exit | <none> | Exit the program.
 
-##### unittest.c
+#### unittest.c
 - Checks assertions for each function of circular buffer.
