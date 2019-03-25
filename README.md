@@ -58,3 +58,7 @@ exit | <none> | Exit the program.
 ### Linux Functioning Example
 
 
+## In Kinetis Design Studio (for FRDM-KL25Z)
+Installation Steps:
+1. Add both projects present in the KDS folder.
+2. Build ksdk_platform_lib_KL25Z4 first, and then hello_world_frdmkl25z.
