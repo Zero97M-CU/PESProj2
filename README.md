@@ -54,3 +54,7 @@ exit | <none> | Exit the program.
 
 #### unittest.c
 - Checks assertions for each function of circular buffer.
+
+### Linux Functioning Example
+
+
