@@ -1,8 +1,13 @@
-# Project 2 - Circular Buffer
+# Project 2 - Circular Buffer, UART and Interrupts
 
 Contributors: Mohit Rane and Suman Hosmane
 
-Description: 
+Description:
+
+This project includes 
+- Circular buffer implementation for Linux and FRDM-KL25Z.
+- Driver code for UART.
+- Application that receives characters from the UART, keeps track of the number of occurences of each of 256 possible characters and sends an updated ASCII formatted report back to the UART for display on a terminal.
 
 ## In Linux
 To execute the program
