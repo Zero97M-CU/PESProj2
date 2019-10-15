@@ -24,7 +24,7 @@ int main()
 	};
 
 	uint8_t no_of_functions = sizeof(func)/sizeof(func[0]);
-	printf("\n\n\t\t\t********** Welcome to the Circular Buffer code **********\n Type \"help\" for command details\n\n");
+	printf("\n\n\t\t\t********** Welcome to the Circular Buffer code **********\n\n Type \"help\" for command details\n\n");
 	
 
 	while(1)
