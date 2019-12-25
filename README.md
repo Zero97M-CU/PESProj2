@@ -16,7 +16,7 @@ To execute the program
 > ./proj2
 </pre>
 
-To clean the .o files
+To clean the .o (object) files
 <pre>
 > make clean
 </pre>
